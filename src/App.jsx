@@ -15,6 +15,8 @@ import RestaurantDashboard from './components/RestaurantDashboard';
 
 const App = () => {
   return (
+    <>
+    <BrowseRouter basename="/quickbite">
     <Router>
       <div className="min-h-screen bg-gray-100 flex flex-col">
         <Navbar />
@@ -36,6 +38,8 @@ const App = () => {
         <Footer />
       </div>
     </Router>
+      </BrowseRouter>
+    </>
   );
 };
 
