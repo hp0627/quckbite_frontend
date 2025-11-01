@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const featuredRestaurants = [
-    { id: 1, name: 'Burger Palace', cuisine: 'American', rating: 4.5, imageUrl: 'https://placehold.co/300x200' },
-    { id: 2, name: 'Pizza Haven', cuisine: 'Italian', rating: 4.3, imageUrl: 'https://placehold.co/300x200' },
-    { id: 3, name: 'Sushi Master', cuisine: 'Japanese', rating: 4.7, imageUrl: 'https://placehold.co/300x200' },
+    { id: 1, name: 'Burger Palace', cuisine: 'American', rating: 4.5, imageUrl: '/burgerpalace.png' },
+    { id: 2, name: 'Pizza Haven', cuisine: 'Italian', rating: 4.3, imageUrl: '/pizza.jpg' },
+    { id: 3, name: 'Sushi Master', cuisine: 'Japanese', rating: 4.7, imageUrl: '/sushi.jpg' },
   ];
 
   return (
@@ -16,7 +16,7 @@ const Home = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Delicious Food Delivered to Your Door</h1>
           <p className="text-xl mb-8">Order from your favorite local restaurants with just a few clicks</p>
           <Link
-            to="/restaurants"
+            to="/signup"
             className="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-orange-100 transition duration-300"
           >
             Order Now
@@ -30,7 +30,13 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredRestaurants.map((restaurant) => (
             <div key={restaurant.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-              <img src={restaurant.imageUrl} alt={restaurant.name} className="w-full h-48 object-cover" />
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={restaurant.imageUrl} 
+                  alt={restaurant.name} 
+                  className="w-full h-full object-contain p-4 bg-white"
+                />
+              </div>
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{restaurant.name}</h3>
                 <p className="text-gray-600 mb-2">{restaurant.cuisine}</p>

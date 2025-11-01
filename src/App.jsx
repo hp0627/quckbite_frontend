@@ -8,6 +8,10 @@ import Orders from './components/Orders';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Menu from './components/Menu';
+import UserDashboard from './components/UserDashboard';
+import AdminDashboard from './components/AdminDashboard';
+import RestaurantDashboard from './components/RestaurantDashboard';
 
 const App = () => {
   return (
@@ -17,11 +21,16 @@ const App = () => {
         <main className="container mx-auto px-4 py-8 flex-grow mt-16">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/restaurants" element={<Restaurants />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/menu/:restaurantId" element={<Menu />} />
+            <Route path="/user-dashboard" element={<UserDashboard />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/restaurant-dashboard" element={<RestaurantDashboard />} />
           </Routes>
         </main>
         <Footer />

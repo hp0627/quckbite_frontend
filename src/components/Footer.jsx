@@ -15,29 +15,6 @@ const Footer = () => {
               Delivering delicious food right to your doorstep. Fast, fresh, and reliable.
             </p>
           </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-700">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/restaurants" className="text-gray-600 hover:text-orange-500 transition-colors duration-300">
-                  Browse Restaurants
-                </Link>
-              </li>
-              <li>
-                <Link to="/orders" className="text-gray-600 hover:text-orange-500 transition-colors duration-300">
-                  Track Order
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" className="text-gray-600 hover:text-orange-500 transition-colors duration-300">
-                  Shopping Cart
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact Info */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-gray-700">Contact Us</h4>

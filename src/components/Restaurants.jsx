@@ -5,11 +5,11 @@ const Restaurants = () => {
   const [selectedCuisine, setSelectedCuisine] = useState('all');
 
   const restaurants = [
-    { id: 1, name: 'Burger Palace', cuisine: 'American', rating: 4.5, deliveryTime: '30-45', minOrder: 15, imageUrl: 'https://placehold.co/300x200' },
-    { id: 2, name: 'Pizza Haven', cuisine: 'Italian', rating: 4.3, deliveryTime: '40-55', minOrder: 20, imageUrl: 'https://placehold.co/300x200' },
-    { id: 3, name: 'Sushi Master', cuisine: 'Japanese', rating: 4.7, deliveryTime: '25-40', minOrder: 25, imageUrl: 'https://placehold.co/300x200' },
-    { id: 4, name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.4, deliveryTime: '20-35', minOrder: 12, imageUrl: 'https://placehold.co/300x200' },
-    { id: 5, name: 'Curry House', cuisine: 'Indian', rating: 4.6, deliveryTime: '35-50', minOrder: 18, imageUrl: 'https://placehold.co/300x200' },
+    { id: 1, name: 'Burger Palace', cuisine: 'American', rating: 4.5, deliveryTime: '30-45', minOrder: 15, imageUrl: '/burgerpalace.png' },
+    { id: 2, name: 'Pizza Haven', cuisine: 'Italian', rating: 4.3, deliveryTime: '40-55', minOrder: 20, imageUrl: '/pizza.jpg' },
+    { id: 3, name: 'Sushi Master', cuisine: 'Japanese', rating: 4.7, deliveryTime: '25-40', minOrder: 25, imageUrl: '/sushi.jpg' },
+    { id: 4, name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.4, deliveryTime: '20-35', minOrder: 12, imageUrl: '/Taco.jpg' },
+    { id: 5, name: 'Curry House', cuisine: 'Indian', rating: 4.6, deliveryTime: '35-50', minOrder: 18, imageUrl: '/curry.jpg' },
   ];
 
   const cuisines = ['all', 'American', 'Italian', 'Japanese', 'Mexican', 'Indian'];
@@ -54,25 +54,27 @@ const Restaurants = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredRestaurants.map(restaurant => (
             <div key={restaurant.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-              <img
-                src={restaurant.imageUrl}
-                alt={restaurant.name}
-                className="w-full h-48 object-cover transform hover:scale-105 transition-all duration-500"
-              />
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={restaurant.imageUrl}
+                  alt={restaurant.name}
+                  className="w-full h-full object-contain p-4 bg-white"
+                />
+              </div>
               <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{restaurant.name}</h3>
-                <p className="text-gray-600 mb-2">{restaurant.cuisine}</p>
-                <div className="flex items-center mb-2">
-                  <span className="text-yellow-500 mr-1">★</span>
-                  <span>{restaurant.rating}</span>
+                <h3 className="text-xl font-semibold">{restaurant.name}</h3>
+                <p className="text-gray-500 text-sm">{restaurant.cuisine}</p>
+                <div className="flex items-center mt-2">
+                  <span className="text-yellow-400">★</span>
+                  <span className="ml-1">{restaurant.rating}</span>
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 mt-2">
                   <p>Delivery: {restaurant.deliveryTime} mins</p>
                   <p>Min. Order: ${restaurant.minOrder}</p>
                 </div>
                 <button
-                  className="mt-4 w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
-                  onClick={() => console.log(`View menu for ${restaurant.name}`)}
+                  className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition-all duration-300"
+                  onClick={() => window.location.href = `/menu/${restaurant.id}`}
                 >
                   View Menu
                 </button>
